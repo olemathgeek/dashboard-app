@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WeatherService } from '../weather.service';
 
 @Component({
   selector: 'app-current-weather',
@@ -8,13 +9,21 @@ import { Component, OnInit } from '@angular/core';
 export class CurrentWeatherComponent implements OnInit {
   conditions;
 
-  constructor() {
+  constructor(private weatherService: WeatherService) {
     setInterval(() => {
-      this.conditions = Date.now();
-    }, 1);
+      this.getConditions();
+    }, 600000);
   }
 
   ngOnInit() {
+    this.getConditions();
+  }
+
+  getConditions() {
+    this.weatherService.getConditions().toPromise().then(data => {
+      this.conditions = data;
+      console.log('conditions: ', this.conditions);
+    });
   }
 
 }

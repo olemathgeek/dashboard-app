@@ -11,7 +11,7 @@ export class DateTimeComponent {
   constructor() {
     setInterval(() => {
       this.now = Date.now();
-    }, 1);
+    }, 10);
   }
 
 }

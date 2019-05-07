@@ -7,6 +7,7 @@ import { FutureWeatherComponent } from './future-weather/future-weather.componen
 import { NewsComponent } from './news/news.component';
 import { DateTimeComponent } from './date-time/date-time.component';
 import { DisneyNewsComponent } from './disney-news/disney-news.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DisneyNewsComponent } from './disney-news/disney-news.component';
     DisneyNewsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

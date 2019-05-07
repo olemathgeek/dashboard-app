@@ -1,3 +1,14 @@
-<p>
-  future-weather works!
-</p>
+<table>
+    <tr>
+      <td *ngFor="let forecastItem of forecast;" style="text-align: center; vertical-align: top; padding-left: 20px; padding-right: 20px;">
+        <h2>{{forecastItem.dateObj | date:'h a'}}</h2>
+        <h2>{{((forecastItem.main.temp - 273) * (9 / 5)) + 32 | number :'1.0-0'}} F</h2>
+        <img alt="forecastItem.weather[0].main" src="{{'http://openweathermap.org/img/w/' + forecastItem.weather[0].icon + '.png'}}">
+        <h3>{{forecastItem.weather[0].description}}</h3>
+        <p>{{forecastItem.main.humidity}}% humidity</p>
+        <p *ngIf="forecastItem.rain">Rain</p>
+        <p *ngIf="forecastItem.snow">snow</p>
+
+      </td>
+    </tr>
+  </table>

@@ -1,3 +1,7 @@
-<p>
-  current-weather works!
-</p>
+<div *ngIf="conditions">
+  <h1>{{((conditions.main.temp - 273) * (9 / 5)) + 32 | number :'1.0-1'}} F</h1>
+  <img width="100" alt="conditions.weather[0].main" src="{{'http://openweathermap.org/img/w/' + conditions.weather[0].icon + '.png'}}">
+  <h2>{{conditions.weather[0].description}}</h2>
+  <p>{{conditions.main.humidity}}% humidity</p>
+</div>
+
